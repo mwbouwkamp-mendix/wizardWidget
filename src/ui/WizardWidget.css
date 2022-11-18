@@ -1,0 +1,56 @@
+.slide-wizard {
+    overflow: hidden;
+    display: flex;
+}
+.wizard-step {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+.wizard-step-rotate {
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+.wizard-step-body {
+    display: block;
+    flex: 1;
+}
+.opacityFull {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out 0.45s;
+}
+.opacityZero {
+    opacity: 0;
+    transition: none;
+}
+.invisible {
+    visibility: hidden;
+}
+.visible {
+    visibility: visible;
+}
+.isAnimating {
+    transition: ease-in-out 0.5s;
+}
+
+.orientation-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.orientation-bottom {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.orientation-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.orientation-right {
+    display: flex;
+    flex-direction: row-reverse;
+}

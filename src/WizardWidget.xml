@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.wizardwidget.WizardWidget" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Wizard Widget</name>
+    <description>Widget to create wizards in a single widget</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="Configuration">
+            <property key="wizardType" type="enumeration" defaultValue="FIXED">
+                <caption>Wizard type</caption>
+                <description>Type of wizzard (fixed or sliding)</description>
+                <enumerationValues>
+                    <enumerationValue key="FIXED">Fixed</enumerationValue>
+                    <enumerationValue key="SLIDING">Sliding</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="headerOrientation" type="enumeration" defaultValue="left">
+                <caption>Header orientation</caption>
+                <description>Position of the navigation header</description>
+                <enumerationValues>
+                    <enumerationValue key="top">Top</enumerationValue>
+                    <enumerationValue key="bottom">Bottom</enumerationValue>
+                    <enumerationValue key="left">Left</enumerationValue>
+                    <enumerationValue key="right">Right</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="slidingWizardStepList" type="object" isList="true" required="false">
+                <caption>Wizard step</caption>
+                <description> Click on [New] and [OK] to add a wizard step</description>
+                <properties>
+                    <propertyGroup caption="Object list group">
+                        <property key="stepHeader" type="widgets" required="false">
+                            <caption>Step header</caption>
+                            <description>My boolean setting</description>
+                        </property>
+                        <property key="stepBody" type="widgets">
+                            <caption>Step body</caption>
+                            <description>My action setting</description>
+                        </property>
+                        <property key="headerColor" type="string" required="false">
+                            <caption>Header color</caption>
+                            <description
+                            >If a color is not set, the background color of first element is used</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+            <property key="fixedStepHeader" type="widgets" required="false">
+                <caption>Step header</caption>
+                <description>My action setting</description>
+            </property>
+            <property key="fixedStepHeaderColor" type="string" required="false">
+                <caption>Header color</caption>
+                <description>If a color is not set, the background color of first element is used</description>
+            </property>
+            <property key="fixedWizardStepList" type="object" isList="true" required="false">
+                <caption>Wizard step</caption>
+                <description> Click on [New] and [OK] to add a wizard step</description>
+                <properties>
+                    <propertyGroup caption="Object list group">
+                        <property key="stepBody" type="widgets">
+                            <caption>Step body</caption>
+                            <description>My action setting</description>
+                        </property>
+                        <property key="headerColor" type="string" required="false">
+                            <caption>Header color</caption>
+                            <description
+                            >If a color is not set, the background color of first element is used</description>
+                        </property>
+                    </propertyGroup>
+                </properties>
+            </property>
+            <property key="activeStep" type="attribute" required="true">
+                <caption>Active step</caption>
+                <description>Step that is active in the wizard</description>
+                <attributeTypes>
+                    <attributeType name="Integer" />
+                </attributeTypes>
+            </property>
+            <property key="clickedStep" type="attribute" required="true">
+                <caption>Clicked step</caption>
+                <description>Step that was clicked on</description>
+                <attributeTypes>
+                    <attributeType name="Integer" />
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Design">
+            <property key="navigationWidthFixed" type="integer" required="true" defaultValue="300">
+                <caption>Width of navigation</caption>
+                <description>Width of the navigation area</description>
+            </property>
+            <property key="headerWidthSlidingActive" type="integer" required="true" defaultValue="32">
+                <caption>Width of bar (open)</caption>
+                <description>Width of the bar active step</description>
+            </property>
+            <property key="headerWidthSlidingInactive" type="integer" required="true" defaultValue="100">
+                <caption>Width of bar (collapsed)</caption>
+                <description>Width of the bar inactive step</description>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Header action">
+            <property key="isHeaderClickable" type="boolean" defaultValue="true">
+                <caption>Header navigation</caption>
+                <description>Enable clicking on a header to go to wizard step?</description>
+            </property>
+            <property key="onActiveStepChange" type="action" required="false">
+                <caption>On header click</caption>
+                <description />
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

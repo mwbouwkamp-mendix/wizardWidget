@@ -1,0 +1,8 @@
+{
+  "extends": "@mendix/pluggable-widgets-tools/configs/tsconfig.base",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+  },
+  "include": ["./src", "./typings", "declaration.d.ts"]
+}
