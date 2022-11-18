@@ -1,4 +1,4 @@
-import { WizardWidgetContainerProps } from "./../typings/WizardWidgetProps";
+import { WizardWidgetContainerProps } from "../typings/WizardWidgetProps";
 
 type Properties = PropertyGroup[];
 
@@ -21,7 +21,11 @@ type ObjectProperties = {
     captions?: string[]; // used for customizing object grids
 };
 
-export const getProperties = (values: WizardWidgetContainerProps, defaultProperties: Properties): PropertyGroup[] => {
+export const getProperties = (
+    values: WizardWidgetContainerProps,
+    defaultProperties: Properties,
+    _target: "web" | "desktop"
+): PropertyGroup[] => {
     const configurationProperty = defaultProperties.filter(
         propertyGroup => propertyGroup.caption === "Configuration"
     )[0];
