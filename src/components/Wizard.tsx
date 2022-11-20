@@ -12,11 +12,6 @@ const Wizard = (): ReactElement => {
     useEffect((): void => {
         onSetStepWidth(wizardRef.current?.clientWidth);
 
-        // Addiyional call to setStepWidth is required for when using the widget in a popup
-        setTimeout((): void => {
-            onSetStepWidth(wizardRef.current?.clientWidth);
-        }, 300);
-
         window.addEventListener("resize", () =>
             setTimeout((): void => {
                 onSetStepWidth(wizardRef.current?.clientWidth);
