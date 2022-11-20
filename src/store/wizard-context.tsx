@@ -21,7 +21,7 @@ export interface WizardContextType {
 
 export const WizardContext = React.createContext<WizardContextType>({} as WizardContextType);
 
-const WizardContextProvider = (props: WizardContextProviderProps): JSX.Element => {
+const WizardContextProvider = (props: WizardContextProviderProps): ReactElement => {
     const [stepWidth, setStepWidth] = useState(10000);
     const [wizardSteps, setWizardSteps] = useState<WizardStepObject[]>([]);
     const [activeStep, setActiveStep] = useState(0);
@@ -70,7 +70,7 @@ const WizardContextProvider = (props: WizardContextProviderProps): JSX.Element =
                 widgetProps: props.widgetProps,
                 stepWidth,
                 onSetStepWidth,
-                wizardSteps: wizardSteps,
+                wizardSteps,
                 onCreateWizardSteps,
                 activeStep,
                 setActiveStep,
