@@ -9,14 +9,17 @@ const Wizard = (): ReactElement => {
 
     const wizardRef = useRef<HTMLDivElement>(null);
 
+    const setWidthWithTimeout = (): void => {
+        setTimeout((): void => {
+            onSetStepWidth(wizardRef.current?.clientWidth);
+        }, 300);
+    };
+
     useEffect((): void => {
         onSetStepWidth(wizardRef.current?.clientWidth);
-
-        window.addEventListener("resize", () =>
-            setTimeout((): void => {
-                onSetStepWidth(wizardRef.current?.clientWidth);
-            }, 300)
-        );
+        setWidthWithTimeout();
+        window.addEventListener("resize", setWidthWithTimeout); // TODO: Currently this is a fix required for this to work in a popup. Need to find a better solution
+        return window.addEventListener("resize", () => setWidthWithTimeout);
     }, [widgetProps]);
 
     useEffect((): void => {

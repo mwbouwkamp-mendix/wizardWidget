@@ -28,11 +28,7 @@ const WizardContextProvider = (props: WizardContextProviderProps): JSX.Element =
 
     const onSetStepWidth = (width: number | undefined): void => {
         setStepWidth(() =>
-            width
-                ? width -
-                  (wizardSteps.length - 1) * props.widgetProps.headerWidthSlidingInactive +
-                  props.widgetProps.headerWidthSlidingActive
-                : 1000
+            width ? width - (wizardSteps.length - 1) * props.widgetProps.headerWidthSlidingInactive : 10000
         );
     };
 
