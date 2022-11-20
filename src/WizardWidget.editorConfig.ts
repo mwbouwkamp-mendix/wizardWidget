@@ -26,15 +26,9 @@ export const getProperties = (
     defaultProperties: Properties,
     _target: "web" | "desktop"
 ): PropertyGroup[] => {
-    const configurationProperty = defaultProperties.filter(
-        propertyGroup => propertyGroup.caption === "Configuration"
-    )[0];
-
-    const designProperty = defaultProperties.filter(propertyGroup => propertyGroup.caption === "Design")[0];
-
-    const headerActionProperty = defaultProperties.filter(
-        propertyGroup => propertyGroup.caption === "Header action"
-    )[0];
+    const configurationProperty = defaultProperties.find(propertyGroup => propertyGroup.caption === "Configuration");
+    const designProperty = defaultProperties.find(propertyGroup => propertyGroup.caption === "Design");
+    const headerActionProperty = defaultProperties.find(propertyGroup => propertyGroup.caption === "Header action");
 
     if (!configurationProperty || !configurationProperty.properties || !designProperty || !designProperty.properties) {
         return defaultProperties;
@@ -63,6 +57,6 @@ export const getProperties = (
     );
 
     return isFixedWizardtype
-        ? [configurationProperty, designProperty]
-        : [configurationProperty, designProperty, headerActionProperty];
+        ? [configurationProperty!, designProperty!]
+        : [configurationProperty!, designProperty!, headerActionProperty!];
 };
