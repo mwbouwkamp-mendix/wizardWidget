@@ -12,12 +12,22 @@ const WizardStep = (props: WizardStepProps): JSX.Element => {
 
     const { stepWidth, widgetProps, activeStep } = useContext(WizardContext);
 
+    /**
+     * Calculate the translate offset to slide the wizardstep
+     *
+     * @param index of the widget step
+     * @param width of the widget
+     * @returns translate offset
+     */
     const calculateTranform = (index: number, width: number): number => {
         return index <= activeStep
             ? -index * (width - widgetProps.headerWidthSlidingInactive)
             : -(index - 1) * (width - widgetProps.headerWidthSlidingInactive);
     };
 
+    /**
+     * Calculate the style of the wizard step (width and tranform)
+     */
     const stepStyle =
         widgetProps.wizardType === "SLIDING"
             ? {

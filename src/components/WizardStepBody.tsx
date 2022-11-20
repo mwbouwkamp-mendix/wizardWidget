@@ -1,10 +1,10 @@
-import { createElement, Fragment, useContext } from "react";
+import { createElement, Fragment, ReactElement, useContext } from "react";
 import { WizardContext } from "../store/wizard-context";
 
 export interface WizardStepBodyProps {
     index: number;
 }
-const WizardStepBody = (props: WizardStepBodyProps): JSX.Element => {
+const WizardStepBody = (props: WizardStepBodyProps): ReactElement => {
     const { wizardSteps, activeStep } = useContext(WizardContext);
 
     return (

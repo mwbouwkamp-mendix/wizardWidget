@@ -1,16 +1,18 @@
-import React, { Fragment, useContext } from "react";
-import { createElement, useEffect } from "react";
+import React, { createElement, Fragment, ReactElement, useContext, useEffect } from "react";
 import { WizardContext } from "../store/wizard-context";
 
 export interface WizardStepHeaderProps {
     index: number;
 }
 
-const WizardStepHeader = (props: WizardStepHeaderProps): JSX.Element => {
+const WizardStepHeader = (props: WizardStepHeaderProps): ReactElement => {
     const headerRef = React.createRef<HTMLDivElement>();
 
     const { widgetProps, wizardSteps, activeStep, onActiveStepChange } = useContext(WizardContext);
 
+    /**
+     * Set color of the widget header
+     */
     useEffect((): void => {
         const headerElement = headerRef.current;
         if (!headerElement) {
@@ -25,7 +27,7 @@ const WizardStepHeader = (props: WizardStepHeaderProps): JSX.Element => {
                 headerElement.style.backgroundColor = wizardStepHeaderContents.style.backgroundColor;
             }
         }
-    }, []);
+    }, [headerRef, props.index, widgetProps.wizardType, wizardSteps]);
 
     const isActiveStep = props.index === activeStep;
 
@@ -51,12 +53,12 @@ const WizardStepHeader = (props: WizardStepHeaderProps): JSX.Element => {
               }
             : {};
 
-    let className = "wizardStepHeader";
-    let classNameChild = "";
-    if (widgetProps.wizardType === "SLIDING") {
-        className = className + " isAnimating";
-        classNameChild = "wizard-step-rotate" + (isActiveStep ? " opacityZero" : " opacityFull");
-    }
+    const className = widgetProps.wizardType === "SLIDING" ? "wizardStepHeader isAnimating" : "wizardStepHeader";
+
+    const classNameChild =
+        widgetProps.wizardType === "SLIDING"
+            ? "wizard-step-rotate" + (isActiveStep ? " opacityZero" : " opacityFull")
+            : "";
 
     return (
         <div
