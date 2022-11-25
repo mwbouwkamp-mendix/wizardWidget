@@ -16,6 +16,7 @@ In addition to a traditional, static wizard, the widget support the creation of 
     * Select an attribute for the step that was clicked on (this attribute can be used in your logic and is set by the widget when used in sliding mode when the user clicks on a header)
     * Configure widths of widget elements
     * (for sliding wizard only) Configure the action that needs to be carried out when clicking on the header of a wizard step
+    * (for static wizard only) Configure the positioning of the navigation (top, right, bottom, left)
 
 ## Demo project
 https://slidingwizard-sandbox.mxapps.io/
