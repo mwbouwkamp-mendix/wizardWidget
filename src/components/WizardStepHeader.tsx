@@ -44,7 +44,13 @@ const WizardStepHeader = (props: WizardStepHeaderProps): ReactElement => {
                   flex: isActiveStep ? "0 1 " + headerWidth + "px" : "0 0 " + headerWidth + "px",
                   width: headerWidth + "px"
               }
-            : {};
+            : widgetProps.headerOrientation === "top" || widgetProps.headerOrientation === "bottom"
+            ? {
+                  width: "100%"
+              }
+            : {
+                  width: headerWidth + "px"
+              };
 
     const rotateStyle =
         widgetProps.wizardType === "SLIDING" && !isActiveStep
