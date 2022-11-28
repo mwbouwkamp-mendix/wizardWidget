@@ -29,3 +29,6 @@ Contact autor
 
 ## Author
 marco.bouwkamp@mendixlabs.com
+
+## Known issues
+The widget works less smoothly in a popup
